@@ -14,20 +14,20 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const meta = {
-	title: SITE.title,
-	description: SITE.description,
-	canonical: getCanonical(getHomePermalink()),
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
 };
 ---
 
 <Layout {meta}>
-	<Hero />
-	<Features />
-	<Steps />
-	<Features2 />
-	<Features3 />
-	<HighlightedPosts />
-	<FAQs />
-	<Stats />
-	<CallToAction />
+  <Hero />
+  <Features />
+  <Steps />
+  <Features2 />
+  <Features3 />
+  <HighlightedPosts />
+  <FAQs />
+  <Stats />
+  <CallToAction />
 </Layout>

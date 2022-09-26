@@ -5,11 +5,11 @@ const { posts } = Astro.props;
 ---
 
 <ul>
-	{
-		posts.map((post) => (
-			<li class="mb-10 md:mb-16">
-				<Item post={post} />
-			</li>
-		))
-	}
+  {
+    posts.map((post) => (
+      <li class="mb-10 md:mb-16">
+        <Item post={post} />
+      </li>
+    ))
+  }
 </ul>
