@@ -12,7 +12,7 @@ const meta = {
 ---
 
 <Layout {meta}>
-<!-- 
+  <!-- 
   <div class="bg-gray-100">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
@@ -362,33 +362,30 @@ const meta = {
   </div> -->
 
   <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-      <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Notifications</h3>
-          <p class="mt-1 text-sm text-gray-600">Decide which communications you'd like to receive and how.</p>
+    <form action="#" method="POST">
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+          <RadioSelect
+            selectName="year"
+            items={[
+              { id: 'first-year', label: 'First-Year' },
+              { id: 'first-year', label: 'First-Year' },
+              { id: 'first-year', label: 'First-Year' },
+            ]}
+          />
+          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
+          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
+          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button
+            type="submit"
+            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >Save</button
+          >
         </div>
       </div>
-      <div class="mt-5 md:col-span-2 md:mt-0">
-        <form action="#" method="POST">
-          <div class="overflow-hidden shadow sm:rounded-md">
-            <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-                <RadioSelect selectName="year" items={[{id: "first-year", label: "First-Year"}, {id: "first-year", label: "First-Year"}, {id: "first-year", label: "First-Year"}]} />
-                <RadioSelect selectName="year" items={[{id: "first-year", label: "First-Year"}]} />
-                <RadioSelect selectName="year" items={[{id: "first-year", label: "First-Year"}]} />
-                <RadioSelect selectName="year" items={[{id: "first-year", label: "First-Year"}]} />
-            </div>
-            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-              <button
-                type="submit"
-                class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >Save</button
-              >
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    </form>
   </div>
 
   <div>
