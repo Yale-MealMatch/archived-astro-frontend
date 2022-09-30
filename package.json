@@ -42,6 +42,7 @@
     "node": "^14.15.0 || >=16.0.0"
   },
   "dependencies": {
-    "@astrojs/svelte": "^1.0.1"
+    "@astrojs/svelte": "^1.0.1",
+    "svelte": "^3.50.1"
   }
 }
