@@ -70,6 +70,7 @@ export default function Example() {
           </RadioGroup.Option>
         ))}
       </div>
+      <div>{}</div>
     </RadioGroup>
   );
 }
