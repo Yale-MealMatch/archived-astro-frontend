@@ -3,6 +3,7 @@ import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import RadioSelect from '~/components/forms/RadioSelect';
+import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
 
 const meta = {
@@ -20,6 +21,7 @@ const meta = {
           <!-- This example requires Tailwind CSS v2.0+ -->
           <FormHeader title="What year are you?" />
           <RadioSelect client:load />
+          <FormInput client:load />
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
           <button
