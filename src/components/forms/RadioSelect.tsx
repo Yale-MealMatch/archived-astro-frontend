@@ -27,7 +27,7 @@ export default function Example() {
             className={({ checked, active }) =>
               classNames(
                 checked ? 'border-transparent' : 'border-gray-300',
-                active ? 'border-indigo-500 ring-2 ring-indigo-500' : '',
+                active ? 'border-rose-500 ring-2 ring-rose-500' : '',
                 'relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between'
               )
             }
@@ -60,7 +60,7 @@ export default function Example() {
                 <span
                   className={classNames(
                     active ? 'border' : 'border-2',
-                    checked ? 'border-indigo-500' : 'border-transparent',
+                    checked ? 'border-rose-500' : 'border-transparent',
                     'pointer-events-none absolute -inset-px rounded-lg'
                   )}
                   aria-hidden="true"
