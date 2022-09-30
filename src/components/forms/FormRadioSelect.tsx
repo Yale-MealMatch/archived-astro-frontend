@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 
 const plans = [
-  { name: 'Hobby', ram: '8GB', cpus: '4 CPUs', disk: '160 GB SSD disk', price: '$40' },
-  { name: 'Startup', ram: '12GB', cpus: '6 CPUs', disk: '256 GB SSD disk', price: '$80' },
-  { name: 'Business', ram: '16GB', cpus: '8 CPUs', disk: '512 GB SSD disk', price: '$160' },
-  { name: 'Enterprise', ram: '32GB', cpus: '12 CPUs', disk: '1024 GB SSD disk', price: '$240' },
+  { name: 'Hobby', subtitle: '8GB', right: '$40' },
+  { name: 'Startup', subtitle: '12GB', right: '$80' },
+  { name: 'Business', subtitle: '16GB', right: '$160' },
+  { name: 'Enterprise', subtitle: '32GB', right: '$240' },
 ];
 
 function classNames(...classes) {
@@ -41,12 +41,8 @@ export default function Example() {
                     </RadioGroup.Label>
                     <RadioGroup.Description as="span" className="text-gray-500">
                       <span className="block sm:inline">
-                        {plan.ram} / {plan.cpus}
+                        {plan.subtitle}
                       </span>{' '}
-                      <span className="hidden sm:mx-1 sm:inline" aria-hidden="true">
-                        &middot;
-                      </span>{' '}
-                      <span className="block sm:inline">{plan.disk}</span>
                     </RadioGroup.Description>
                   </span>
                 </span>
@@ -54,7 +50,7 @@ export default function Example() {
                   as="span"
                   className="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right"
                 >
-                  <span className="font-medium text-gray-900">{plan.price}</span>
+                  <span className="font-medium text-gray-900">{plan.right}</span>
                   <span className="ml-1 text-gray-500 sm:ml-0">/mo</span>
                 </RadioGroup.Description>
                 <span
