@@ -6,7 +6,7 @@ export let selectName
   <legend class="contents text-base font-medium text-gray-900">What year are you?</legend>
   <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
   <div class="mt-4 space-y-4">
-	{items.map((item) => (
+	{#each items as item}
 		<div class="flex items-center">
 			<input
 				id={item.id}
@@ -18,6 +18,6 @@ export let selectName
 				{item.label}
 			</label>
 		</div>
-	))}
+	{/each}
   </div>
 </fieldset>
