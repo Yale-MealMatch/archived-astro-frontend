@@ -1,7 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useState } from 'react';
 
-export default function Example({label, id, placeholder}) {
+type FormInputProps = {
+  label: string;
+  id: string;
+  placeholder: string;
+}
+
+export default function Example({label, id, placeholder}: FormInputProps) {
   const [input, setInput] = useState('')
   return (
     <div>
