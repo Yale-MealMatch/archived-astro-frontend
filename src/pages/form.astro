@@ -19,6 +19,7 @@ const questions = [
     type: "radio",
     name: "year",
     label: "What year are you?",
+    description: null,
     options: [
       { label: "Freshman"},
       { label: "Sophomore"},
@@ -30,6 +31,7 @@ const questions = [
     type: "input",
     name: "phone",
     label: "What is your phone number?",
+    description: null,
     placeholder: "1234567890",
   }
 ]
@@ -44,14 +46,14 @@ const questions = [
             if (question.type === "radio") {
               return (
                 <FormGroup>
-                  <FormHeader title={question.label} />
+                  <FormHeader title={question.label} description={question.description} />
                   <FormRadioSelect options={question.options} client:load/>
                 </FormGroup>
               )
             } else if (question.type === "input") {
               return (
                 <FormGroup>
-                  <FormHeader title={question.label} />
+                  <FormHeader title={question.label} description={question.description} />
                   <FormInput name={question.name} label={question.label} placeholder={question.placeholder} client:load/>
                 </FormGroup>
               )
