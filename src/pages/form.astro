@@ -5,6 +5,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import FormRadioSelect from '~/components/forms/FormRadioSelect';
 import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
+import FormGroup from '~/components/forms/FormGroup.astro';
+import FormDivider from '~/components/forms/FormDivider.astro';
 
 const meta = {
   title: SITE.title,
@@ -19,18 +21,21 @@ const meta = {
       <div class="overflow-hidden shadow sm:rounded-md">
         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
           <!-- This example requires Tailwind CSS v2.0+ -->
+          <FormGroup>
+            <FormHeader title="What year are you?" />
+            <FormRadioSelect client:load />
+          </FormGroup>
+          <FormDivider />
           <FormHeader title="What year are you?" />
-          <FormRadioSelect client:load />
           <FormInput id="name" label="Name" placeholder="Joe Mama" client:load />
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
           <button
             type="submit"
             class="inline-flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-            Save
-            </button
           >
+            Save
+          </button>
         </div>
       </div>
     </form>
