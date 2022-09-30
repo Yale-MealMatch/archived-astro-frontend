@@ -7,9 +7,9 @@ type FormRadioSelectProps = {
 }
 
 type Option = {
-  name: string;
-  subtitle: string;
-  right: string;
+  label: string;
+  subtitle?: string;
+  right?: string;
 };
 
 function classNames(...classes) {
@@ -17,7 +17,7 @@ function classNames(...classes) {
 }
 
 export default function Example({options}: FormRadioSelectProps) {
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState();
 
   return (
     <RadioGroup value={selected} onChange={setSelected}>
@@ -25,7 +25,7 @@ export default function Example({options}: FormRadioSelectProps) {
       <div className="space-y-4">
         {options.map((option) => (
           <RadioGroup.Option
-            key={option.name}
+            key={option.label}
             value={option}
             className={({ checked, active }) =>
               classNames(
@@ -40,7 +40,7 @@ export default function Example({options}: FormRadioSelectProps) {
                 <span className="flex items-center">
                   <span className="flex flex-col text-sm">
                     <RadioGroup.Label as="span" className="font-medium text-gray-900">
-                      {option.name}
+                      {option.label}
                     </RadioGroup.Label>
                     <RadioGroup.Description as="span" className="text-gray-500">
                       <span className="block sm:inline">
