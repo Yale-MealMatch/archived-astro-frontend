@@ -42,7 +42,9 @@
     "node": "^14.15.0 || >=16.0.0"
   },
   "dependencies": {
-    "@astrojs/svelte": "^1.0.1",
-    "svelte": "^3.46.4"
+    "@astrojs/react": "^1.1.4",
+    "@headlessui/react": "^1.7.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

@@ -2,7 +2,7 @@
 import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
-import RadioSelect from '~/components/forms/RadioSelect.svelte';
+import RadioSelect from '~/components/forms/RadioSelect.jsx';
 
 const meta = {
   title: SITE.title,
@@ -365,17 +365,7 @@ const meta = {
     <form action="#" method="POST">
       <div class="overflow-hidden shadow sm:rounded-md">
         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-          <RadioSelect
-            selectName="year"
-            items={[
-              { id: 'first-year', label: 'First-Year' },
-              { id: 'first-year', label: 'First-Year' },
-              { id: 'first-year', label: 'First-Year' },
-            ]}
-          />
-          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
-          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
-          <RadioSelect selectName="year" items={[{ id: 'first-year', label: 'First-Year' }]} />
+          <RadioSelect client:load />
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
           <button
