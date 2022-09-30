@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 
-const plans = [
+const options = [
   { name: 'Hobby', subtitle: '8GB', right: '$40' },
   { name: 'Startup', subtitle: '12GB', right: '$80' },
   { name: 'Business', subtitle: '16GB', right: '$160' },
@@ -14,16 +14,16 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  const [selected, setSelected] = useState(plans[0]);
+  const [selected, setSelected] = useState(options[0]);
 
   return (
     <RadioGroup value={selected} onChange={setSelected}>
       <RadioGroup.Label className="sr-only"> Server size </RadioGroup.Label>
       <div className="space-y-4">
-        {plans.map((plan) => (
+        {options.map((option) => (
           <RadioGroup.Option
-            key={plan.name}
-            value={plan}
+            key={option.name}
+            value={option}
             className={({ checked, active }) =>
               classNames(
                 checked ? 'border-transparent' : 'border-gray-300',
@@ -37,11 +37,11 @@ export default function Example() {
                 <span className="flex items-center">
                   <span className="flex flex-col text-sm">
                     <RadioGroup.Label as="span" className="font-medium text-gray-900">
-                      {plan.name}
+                      {option.name}
                     </RadioGroup.Label>
                     <RadioGroup.Description as="span" className="text-gray-500">
                       <span className="block sm:inline">
-                        {plan.subtitle}
+                        {option.subtitle}
                       </span>{' '}
                     </RadioGroup.Description>
                   </span>
@@ -50,7 +50,7 @@ export default function Example() {
                   as="span"
                   className="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right"
                 >
-                  <span className="font-medium text-gray-900">{plan.right}</span>
+                  <span className="font-medium text-gray-900">{option.right}</span>
                   <span className="ml-1 text-gray-500 sm:ml-0">/mo</span>
                 </RadioGroup.Description>
                 <span
