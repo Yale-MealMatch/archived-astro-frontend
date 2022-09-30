@@ -3,6 +3,7 @@ import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import RadioSelect from '~/components/forms/RadioSelect';
+import FormHeader from '~/components/forms/FormHeader.astro';
 
 const meta = {
   title: SITE.title,
@@ -17,11 +18,7 @@ const meta = {
       <div class="overflow-hidden shadow sm:rounded-md">
         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
           <!-- This example requires Tailwind CSS v2.0+ -->
-          <div class="border-b border-gray-200 pb-5">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Job Postings</h3>
-            <p class="mt-2 max-w-4xl text-sm text-gray-500">Workcation is a property rental website. Etiam ullamcorper massa viverra consequat, consectetur id nulla tempus. Fringilla egestas justo massa purus sagittis malesuada.</p>
-          </div>
-
+          <FormHeader title="What year are you?" />
           <RadioSelect client:load />
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
