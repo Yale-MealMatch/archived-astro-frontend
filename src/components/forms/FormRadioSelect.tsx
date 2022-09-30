@@ -2,18 +2,21 @@
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 
-const options = [
-  { name: 'Hobby', subtitle: '8GB', right: '$40' },
-  { name: 'Startup', subtitle: '12GB', right: '$80' },
-  { name: 'Business', subtitle: '16GB', right: '$160' },
-  { name: 'Enterprise', subtitle: '32GB', right: '$240' },
-];
+type FormRadioSelectProps = {
+  options: Option[]
+}
+
+type Option = {
+  name: string;
+  subtitle: string;
+  right: string;
+};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Example({options}: FormRadioSelectProps) {
   const [selected, setSelected] = useState(options[0]);
 
   return (
