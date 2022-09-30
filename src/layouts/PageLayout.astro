@@ -9,7 +9,10 @@ const { meta } = Astro.props;
 <Layout {meta}>
   <Header />
   <main>
-    <slot />
+    <!-- TODO: Edit this as desired to match desired width -->
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <slot />
+    </div>
   </main>
   <Footer />
 </Layout>
