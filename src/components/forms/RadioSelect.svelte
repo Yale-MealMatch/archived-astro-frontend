@@ -1,6 +1,7 @@
----
-const {items, selectName} = Astro.props
----
+<script lang="ts">
+export let items
+export let selectName
+</script>
 <fieldset>
   <legend class="contents text-base font-medium text-gray-900">What year are you?</legend>
   <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
