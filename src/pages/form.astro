@@ -51,7 +51,7 @@ const questions = [
             } else if (question.type === "input") {
               return (
                 <FormGroup>
-                  <FormHeader>{question.label}</FormHeader>
+                  <FormHeader title={question.label} />
                   <FormInput name={question.name} label={question.label} placeholder={question.placeholder} client:load/>
                 </FormGroup>
               )
