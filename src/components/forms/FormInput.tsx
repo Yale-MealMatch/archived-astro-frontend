@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 type FormInputProps = {
   label: string;
-  id: string;
+  name: string;
   placeholder: string;
 }
 
-export default function Example({label, id, placeholder}: FormInputProps) {
+export default function Example({label, name, placeholder}: FormInputProps) {
   const [input, setInput] = useState('')
   return (
     <div>
@@ -17,8 +17,8 @@ export default function Example({label, id, placeholder}: FormInputProps) {
       <div className="mt-1 border-b border-gray-300 focus-within:border-rose-600">
         <input
           type="text"
-          name={id}
-          id={id}
+          name={name}
+          id={name}
           className="block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
           placeholder={placeholder}
           value={input}
