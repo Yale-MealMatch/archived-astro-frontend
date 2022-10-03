@@ -1,16 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
+import {FormRadioSelectOption} from 'types/forms/question';
 
 type FormRadioSelectProps = {
-  options: Option[]
+  options: FormRadioSelectOption[]
 }
-
-export type Option = {
-  label: string;
-  subtitle?: string;
-  right?: string;
-};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

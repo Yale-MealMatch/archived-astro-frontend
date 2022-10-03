@@ -22,7 +22,7 @@ export default function Example({label, name, placeholder}: FormInputProps) {
           className="block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
           placeholder={placeholder}
           value={input}
-          onChange={(e) => setInput(e.target.value)}kk
+          onChange={(e) => setInput(e.target.value)}
         />
       </div>
     </div>

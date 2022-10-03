@@ -7,21 +7,12 @@ import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
 import FormGroup from '~/components/forms/FormGroup.astro';
 import FormDivider from '~/components/forms/FormDivider.astro';
-import type {Option as FormRadioSelectOption } from '~/components/forms/FormRadioSelect';
+import {Question} from 'types/forms/question';
 
 const meta = {
   title: SITE.title,
   description: SITE.description,
   canonical: getCanonical(getHomePermalink()),
-};
-
-type Question = {
-  type: 'radio' | 'input';
-  name: string;
-  label: string;
-  description: string;
-  options?: FormRadioSelectOption[];
-  placeholder: string;
 };
 
 const questions: Question[] = [
