@@ -7,19 +7,29 @@ import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
 import FormGroup from '~/components/forms/FormGroup.astro';
 import FormDivider from '~/components/forms/FormDivider.astro';
+import type {Option as FormRadioSelectOption } from '~/components/forms/FormRadioSelect';
 
 const meta = {
   title: SITE.title,
-  description: SITE.description,
+  description: SITE.description,}
   canonical: getCanonical(getHomePermalink()),
 };
 
-const questions = [
+type Question = {
+  type: 'radio' | 'input';
+  name: string;
+  label: string;
+  description: string;
+  options?: FormRadioSelectOption[];
+  placeholder: string;
+};
+
+const questions: Question[] = [
   {
     type: "radio",
     name: "year",
     label: "What year are you?",
-    description: null,
+    description: "Be honest",
     options: [
       { label: "Freshman"},
       { label: "Sophomore"},
