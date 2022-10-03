@@ -6,7 +6,7 @@ type FormRadioSelectProps = {
   options: Option[]
 }
 
-type Option = {
+export type Option = {
   label: string;
   subtitle?: string;
   right?: string;
