@@ -50,6 +50,7 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
+const question = page.data[0];
 ---
 
 <Layout {meta}>
@@ -57,18 +58,13 @@ const { page } = Astro.props;
     <form action="#" method="POST">
       <div class="overflow-hidden shadow sm:rounded-md">
         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-          {
-            questions.map((question) => {
-              if (question.type === 'radio') {
-                return (
+              {question.type === 'radio' && (
                   <FormGroup>
                     <FormHeader title={question.label} description={question.description} />
                     <FormRadioSelect formRadio={question} client:load />
                   </FormGroup>
-                );
-              } else if (question.type === 'input') {
-                return (
-                  <FormGroup>
+                )}
+              {question.type === 'input' && (<FormGroup>
                     <FormHeader title={question.label} description={question.description} />
                     <FormInput
                       name={question.name}
@@ -76,11 +72,8 @@ const { page } = Astro.props;
                       placeholder={question.placeholder}
                       client:load
                     />
-                  </FormGroup>
-                );
-              }
-            })
-          }
+                  </FormGroup>)
+                }
           <FormDivider />
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
