@@ -7,7 +7,7 @@ import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
 import FormGroup from '~/components/forms/FormGroup.astro';
 import FormDivider from '~/components/forms/FormDivider.astro';
-import type { Question } from '~/types/form';
+import {questions} from '~/components/forms/questions';
 
 const meta = {
   title: SITE.title,
@@ -16,36 +16,6 @@ const meta = {
 };
 
 export async function getStaticPaths({ paginate }) {
-  const questions: Question[] = [
-    {
-      type: 'radio',
-      name: 'year',
-      label: 'What year are you?',
-      description: '',
-      options: [{ label: 'Freshman' }, { label: 'Sophomore' }, { label: 'Junior' }, { label: 'Senior' }],
-    },
-    {
-      type: 'radio',
-      name: 'pronouns',
-      label: 'What are your pronouns?',
-      description: '',
-      options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }],
-    },
-    {
-      type: 'input',
-      name: 'phone',
-      label: 'What is your phone number?',
-      description: null,
-      placeholder: '1234567890',
-    },
-    {
-      type: 'input',
-      name: 'bio',
-      label: 'What are your pronouns?',
-      description: '',
-      placeholder: '1234567890',
-    },
-  ];
   return paginate(questions, { pageSize: 1 });
 }
 
@@ -101,40 +71,27 @@ const question = page.data[0];
             </a>
           </div>
           <div class="hidden md:-mt-px md:flex">
-            <a
-              href="#"
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >1</a
-            >
+            {
+              questions.map((question, index) => (
+                <a
+                  href={`${ index + 1 }`}
+                  class={
+                    (index + 1 === page.currentPage) ?
+                    "border-rose-500 text-rose-600 inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    :
+                    "inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                  }
+                >
+                  {index + 1}
+                </a>
+              ))
+            }
+            
             <!-- Current: "border-rose-500 text-rose-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
             <a
               href="#"
               class="inline-flex items-center border-t-2 border-rose-500 px-4 pt-4 text-sm font-medium text-rose-600"
               aria-current="page">2</a
-            >
-            <a
-              href="#"
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >3</a
-            >
-            <span
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500"
-              >...</span
-            >
-            <a
-              href="#"
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >8</a
-            >
-            <a
-              href="#"
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >9</a
-            >
-            <a
-              href="#"
-              class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >10</a
             >
           </div>
           <div class="-mt-px flex w-0 flex-1 justify-end">
