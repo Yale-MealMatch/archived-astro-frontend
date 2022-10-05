@@ -1,4 +1,4 @@
-export type FormRadioSelectOption = {
+type FormRadioSelectOption = {
   label: string;
   subtitle?: string;
   right?: string;

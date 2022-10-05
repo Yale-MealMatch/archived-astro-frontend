@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
-import {FormRadio} from '~/components/forms/form';
+import {FormRadio} from '~/types/form';
 
 type FormRadioSelectProps = {
   formRadio: FormRadio
