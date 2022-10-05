@@ -1,24 +1,24 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
-import {FormRadioSelectOption} from 'types/forms/question';
+import {FormRadio} from '~/components/forms/form';
 
 type FormRadioSelectProps = {
-  options: FormRadioSelectOption[]
+  formRadio: FormRadio
 }
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example({options}: FormRadioSelectProps) {
+export default function Example({ formRadio }: FormRadioSelectProps) {
   const [selected, setSelected] = useState();
 
   return (
     <RadioGroup value={selected} onChange={setSelected}>
-      <RadioGroup.Label className="sr-only"> Server size </RadioGroup.Label>
+      <RadioGroup.Label className="sr-only">{formRadio.name}</RadioGroup.Label>
       <div className="space-y-4">
-        {options.map((option) => (
+        {formRadio.options.map((option) => (
           <RadioGroup.Option
             key={option.label}
             value={option}
@@ -38,9 +38,7 @@ export default function Example({options}: FormRadioSelectProps) {
                       {option.label}
                     </RadioGroup.Label>
                     <RadioGroup.Description as="span" className="text-gray-500">
-                      <span className="block sm:inline">
-                        {option.subtitle}
-                      </span>{' '}
+                      <span className="block sm:inline">{option.subtitle}</span>{' '}
                     </RadioGroup.Description>
                   </span>
                 </span>
