@@ -3,7 +3,7 @@ type Props = { title: string; description: string | null };
 const { title, description } = Astro.props;
 ---
 
-<div class="border-b border-gray-200 pb-5">
+<div class="border-b border-gray-200 pb-2 mb-4">
   <h3 class="text-lg font-medium leading-6 text-gray-900">{title}</h3>
   {description && <p class="mt-2 max-w-4xl text-sm text-gray-500">{description}</p>}
 </div>
