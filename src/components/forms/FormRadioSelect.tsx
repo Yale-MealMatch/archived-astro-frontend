@@ -46,8 +46,7 @@ export default function Example({ formRadio }: FormRadioSelectProps) {
                   as="span"
                   className="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right"
                 >
-                  <span className="font-medium text-gray-900">{option.right}</span>
-                  <span className="ml-1 text-gray-500 sm:ml-0">/mo</span>
+                  <span className="ml-1 text-gray-500 sm:ml-0">{option.right}</span>
                 </RadioGroup.Description>
                 <span
                   className={classNames(
