@@ -7,7 +7,7 @@ import FormInput from '~/components/forms/FormInput';
 import FormHeader from '~/components/forms/FormHeader.astro';
 import FormGroup from '~/components/forms/FormGroup.astro';
 import FormDivider from '~/components/forms/FormDivider.astro';
-import {Question} from 'types/forms/question';
+import type {Question} from '~/components/forms/form';
 
 const meta = {
   title: SITE.title,
@@ -29,10 +29,28 @@ const questions: Question[] = [
     ],
   },
   {
+    type: "radio",
+    name: "pronouns",
+    label: "What are your pronouns?",
+    description: "",
+    options: [
+      { label: "he/him"},
+      { label: "she/her"},
+      { label: "other"},
+    ],
+  },
+  {
     type: "input",
     name: "phone",
     label: "What is your phone number?",
     description: null,
+    placeholder: "1234567890",
+  },
+  {
+    type: "input",
+    name: "bio",
+    label: "What are your pronouns?",
+    description: "",
     placeholder: "1234567890",
   }
 ]
