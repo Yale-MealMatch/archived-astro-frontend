@@ -1,0 +1,97 @@
+---
+import { SITE } from '~/config.mjs';
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+import FormRadioSelect from '~/components/forms/FormRadioSelect';
+import FormInput from '~/components/forms/FormInput';
+import FormHeader from '~/components/forms/FormHeader.astro';
+import FormGroup from '~/components/forms/FormGroup.astro';
+import FormDivider from '~/components/forms/FormDivider.astro';
+import type { Question } from '~/types/form';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
+};
+
+export async function getStaticPaths({ paginate }) {
+  const questions: Question[] = [
+    {
+      type: 'radio',
+      name: 'year',
+      label: 'What year are you?',
+      description: '',
+      options: [{ label: 'Freshman' }, { label: 'Sophomore' }, { label: 'Junior' }, { label: 'Senior' }],
+    },
+    {
+      type: 'radio',
+      name: 'pronouns',
+      label: 'What are your pronouns?',
+      description: '',
+      options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }],
+    },
+    {
+      type: 'input',
+      name: 'phone',
+      label: 'What is your phone number?',
+      description: null,
+      placeholder: '1234567890',
+    },
+    {
+      type: 'input',
+      name: 'bio',
+      label: 'What are your pronouns?',
+      description: '',
+      placeholder: '1234567890',
+    },
+  ];
+  return paginate(questions, { pageSize: 1 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout {meta}>
+  <div class="mt-10 sm:mt-0">
+    <form action="#" method="POST">
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+          {
+            questions.map((question) => {
+              if (question.type === 'radio') {
+                return (
+                  <FormGroup>
+                    <FormHeader title={question.label} description={question.description} />
+                    <FormRadioSelect formRadio={question} client:load />
+                  </FormGroup>
+                );
+              } else if (question.type === 'input') {
+                return (
+                  <FormGroup>
+                    <FormHeader title={question.label} description={question.description} />
+                    <FormInput
+                      name={question.name}
+                      label={question.label}
+                      placeholder={question.placeholder}
+                      client:load
+                    />
+                  </FormGroup>
+                );
+              }
+            })
+          }
+          <FormDivider />
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button
+            type="submit"
+            class="inline-flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</Layout>
